@@ -18,9 +18,9 @@ def main():
     # Check command-line arguments
     if len(sys.argv) not in [2, 3]:
         sys.exit("Usage: python traffic.py data_directory [model.h5]")
-
+    
     # Get image arrays and labels for all image files
-    images, labels = load_data(r"C:\Ashutosh\UG 22-26\SOC 2023\Assignment2\traffic")
+    images, labels = load_data(sys.argv[1])
 
     # Split data into training and testing sets
     labels = tf.keras.utils.to_categorical(labels)
@@ -60,10 +60,10 @@ def load_data(data_dir):
     """
     images = []
     labels = []
-
+    
     for category in range(NUM_CATEGORIES):
         category_dir = os.path.join(data_dir, str(category))
-
+        
         for image_file in os.listdir(category_dir):
             image_path = os.path.join(category_dir, image_file)
             image = cv2.imread(image_path)
@@ -96,7 +96,7 @@ def get_model():
 
 
         tf.keras.layers.Dense(128, activation="relu"),
-        tf.keras.layers.Dropout(0.3),
+        tf.keras.layers.Dropout(0.2),
 
     
         tf.keras.layers.Dense(NUM_CATEGORIES, activation="softmax")

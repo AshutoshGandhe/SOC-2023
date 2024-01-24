@@ -1,6 +1,7 @@
 # SOC-2023
 
 Navigating the Waters of AI
+
 Project Highlights
 1. Data Preprocessing and Exploration
 Acquired and applied fundamental principles such as Feature Engineering, Data Visualization, and Data Cleaning to ensure the quality and relevance of the dataset.
